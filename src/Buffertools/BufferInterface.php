@@ -8,11 +8,11 @@ interface BufferInterface
 {
     /**
      * @param int              $start
-     * @param int|null         $end
+     * @param int|null $end
      * @return BufferInterface
      * @throws \Exception
      */
-    public function slice(int $start, int $end = null): BufferInterface;
+    public function slice(int $start, ?int $end = null): BufferInterface;
 
     /**
      * Get the size of the buffer to be returned

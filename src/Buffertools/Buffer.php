@@ -20,10 +20,10 @@ class Buffer implements BufferInterface
 
     /**
      * @param string               $byteString
-     * @param null|integer         $byteSize
+     * @param integer|null $byteSize
      * @throws \Exception
      */
-    public function __construct(string $byteString = '', int $byteSize = null)
+    public function __construct(string $byteString = '', ?int $byteSize = null)
     {
         if ($byteSize !== null) {
             // Check the integer doesn't overflow its supposed size
@@ -57,7 +57,7 @@ class Buffer implements BufferInterface
      * @return Buffer
      * @throws \Exception
      */
-    public static function hex(string $hexString = '', int $byteSize = null): BufferInterface
+    public static function hex(string $hexString = '', ?int $byteSize = null): BufferInterface
     {
         if (strlen($hexString) > 0 && !ctype_xdigit($hexString)) {
             throw new \InvalidArgumentException('Buffer::hex: non-hex character passed');
@@ -104,7 +104,7 @@ class Buffer implements BufferInterface
      * @return BufferInterface
      * @throws \Exception
      */
-    public function slice(int $start, int $end = null): BufferInterface
+    public function slice(int $start, ?int $end = null): BufferInterface
     {
         if ($start > $this->getSize()) {
             throw new \Exception('Start exceeds buffer length');

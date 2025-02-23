@@ -114,7 +114,7 @@ class BufferTest extends TestCase
      * @param int|null $size
      * @param string $expectedHex
      */
-    public function testIntConstruct($int, string $expectedHex, int $size = null)
+    public function testIntConstruct($int, string $expectedHex, ?int $size = null)
     {
         $buffer = Buffer::int($int, $size);
         $this->assertEquals($expectedHex, $buffer->getHex());
